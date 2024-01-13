@@ -1,11 +1,11 @@
-const socket = io()
+import { emitirTextoEditor } from './socket-front-documento.js'
 
 const textoEditor = document.querySelector('#editor')
 
 textoEditor.addEventListener('keyup', () => {
-  socket.emit('texto-editor', textoEditor.value)
+  emitirTextoEditor(textoEditor.value)
 })
 
-socket.on('texto-editor-clientes', texto => {
+export function atualizarTextoEditor(texto) {
   textoEditor.value = texto
-})
+}
