@@ -19,6 +19,7 @@
           <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
             <div class="px-4 py-2 bg-white rounded-t-lg">
               <textarea
+                id="editor"
                 rows="4"
                 class="w-full h-[400px] resize-none px-0 text-sm text-gray-900 bg-white border-0"
                 placeholder="Escreva em seu novo documento..."
@@ -37,5 +38,7 @@
         </form>
       </main>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="documento.js" type="module"></script>
   </body>
 </html>
