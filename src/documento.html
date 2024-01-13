@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documento</title>
-</head>
-<body>
-  
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Documento</title>
+  </head>
+  <body>
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8 p-20">
+      <header class="max-w-lg mx-auto">
+        <h1 class="text-gray-800 text-3xl font-bold sm:text-5xl text-center">
+          Documentos
+        </h1>
+      </header>
+
+      <main class="max-w-screen-xl mx-auto px-4 md:px-8 mt-14">
+        <form>
+          <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
+            <div class="px-4 py-2 bg-white rounded-t-lg">
+              <textarea
+                rows="4"
+                class="w-full h-[400px] resize-none px-0 text-sm text-gray-900 bg-white border-0"
+                placeholder="Escreva em seu novo documento..."
+              ></textarea>
+            </div>
+
+            <div class="flex items-center justify-between px-3 py-2 border-t">
+              <a
+                href="index.html"
+                class="px-5 py-2.5 text-white bg-indigo-600 rounded-md duration-150 hover:bg-indigo-700 active:shadow-lg"
+              >
+                Voltar
+              </a>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </body>
 </html>
