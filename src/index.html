@@ -7,6 +7,61 @@
     <title>Documentos</title>
   </head>
   <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <div class="p-20">
+      <div>
+        <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+          <div class="max-w-lg mx-auto">
+            <h3
+              class="text-gray-800 text-3xl font-bold sm:text-5xl text-center"
+            >
+              Documentos
+            </h3>
+            <p class="text-gray-600 mt-5 text-center">
+              Crie documentos e os edite simultâneamente com outros usuários
+            </p>
+          </div>
+
+          <div class="mt-12 shadow-sm border rounded-lg overflow-x-auto">
+            <table class="w-full table-auto text-sm text-left">
+              <thead class="bg-gray-50 text-gray-600 font-medium border-b">
+                <tr>
+                  <th class="py-3 px-6">Nome do Arquivo</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 divide-y">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Exemplo 1</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Exemplo 2</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">Exemplo 3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Input e Button-->
+      <div class="max-w-screen-xl mx-auto px-4 md:px-8 mt-14">
+        <label for="nome-documento" class="block py-2 text-gray-500">
+          Crie um novo Documento
+        </label>
+        <div class="flex items-center justify-between">
+          <input
+            type="text"
+            placeholder="Digite o nome do documento aqui ..."
+            id="nome-documento"
+            class="w-2/3 p-2.5 bg-transparent outline-none text-gray-400 border rounded-md"
+          />
+          <button
+            class="px-5 py-2.5 text-white bg-indigo-600 rounded-md duration-150 hover:bg-indigo-700 active:shadow-lg"
+          >
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
