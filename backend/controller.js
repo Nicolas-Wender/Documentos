@@ -22,3 +22,18 @@ export function atualizarDocumento(nome, texto) {
 
   return atualizacao
 }
+
+export function obterDocumentos() {
+  const documentos = documentosColecao.find().toArray()
+
+  return documentos
+}
+
+export function adicionarDocumento(nome) {
+  const resultado = documentosColecao.insertOne({
+    nome,
+    texto: ''
+  })
+
+  return resultado
+}

@@ -28,23 +28,10 @@
                   <th class="py-3 px-6">Nome do Arquivo</th>
                 </tr>
               </thead>
-              <tbody class="text-gray-600 divide-y">
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="documento.html?nome=Exemplo1">Exemplo 1</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="documento.html?nome=Exemplo2">Exemplo 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="documento.html?nome=Exemplo3">Exemplo 3</a>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody
+                class="text-gray-600 divide-y"
+                id="lista-documentos"
+              ></tbody>
             </table>
           </div>
         </div>
@@ -54,7 +41,7 @@
         <label for="nome-documento" class="block py-2 text-gray-500">
           Crie um novo Documento
         </label>
-        <div class="flex items-center justify-between">
+        <form id="criar-documento" class="flex items-center justify-between">
           <input
             type="text"
             placeholder="Digite o nome do documento aqui ..."
@@ -62,12 +49,15 @@
             class="w-2/3 p-2.5 bg-transparent outline-none text-gray-400 border rounded-md"
           />
           <button
+            type="submit"
             class="px-5 py-2.5 text-white bg-indigo-600 rounded-md duration-150 hover:bg-indigo-700 active:shadow-lg"
           >
             Adicionar
           </button>
-        </div>
+        </form>
       </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>

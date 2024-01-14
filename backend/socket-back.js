@@ -1,8 +1,31 @@
-import { atualizarDocumento, encontrarDocumento } from './controller.js'
+import {
+  adicionarDocumento,
+  atualizarDocumento,
+  encontrarDocumento,
+  obterDocumentos
+} from './controller.js'
 import io from './servidor.js'
 
 io.on('connection', socket => {
-  console.log('Conectado ao socket', socket.id)
+  socket.on('obter-documentos', async devolverDocumentos => {
+    const documentos = await obterDocumentos()
+
+    devolverDocumentos(documentos)
+  })
+
+  socket.on('adicionar-documento', async nomeDocumento => {
+    const documentoExiste = (await encontrarDocumento(nomeDocumento)) !== null
+
+    if (documentoExiste) {
+      socket.emit('documento-existente', nomeDocumento)
+    } else {
+      const resultado = await adicionarDocumento(nomeDocumento)
+
+      if (resultado.acknowledged) {
+        io.emit('adicionar-documento-clientes', nomeDocumento)
+      }
+    }
+  })
 
   socket.on('selecionar-documento', async (nomeDocumento, devolverTexto) => {
     socket.join(nomeDocumento)
