@@ -1,47 +1,24 @@
+import { atualizarDocumento, encontrarDocumento } from './controller.js'
 import io from './servidor.js'
-
-const documentos = [
-  {
-    nome: 'Exemplo1',
-    texto: 'texto de Exemplo1...'
-  },
-  {
-    nome: 'Exemplo2',
-    texto: 'texto de Exemplo2...'
-  },
-  {
-    nome: 'Exemplo3',
-    texto: 'texto de Exemplo3...'
-  }
-]
 
 io.on('connection', socket => {
   console.log('Conectado ao socket', socket.id)
 
-  socket.on('selecionar-documento', (nomeDocumento, devolverTexto) => {
+  socket.on('selecionar-documento', async (nomeDocumento, devolverTexto) => {
     socket.join(nomeDocumento)
 
-    const documento = encontrarDocumento(nomeDocumento)
+    const documento = await encontrarDocumento(nomeDocumento)
 
     if (documento) {
       devolverTexto(documento.texto)
     }
   })
 
-  socket.on('texto-editor', ({ texto, nomeDocumento }) => {
-    const documento = encontrarDocumento(nomeDocumento)
+  socket.on('texto-editor', async ({ texto, nomeDocumento }) => {
+    const atualizacao = await atualizarDocumento(nomeDocumento, texto)
 
-    if (documento) {
-      documento.texto = texto
+    if (atualizacao.modifiedCount) {
       socket.to(nomeDocumento).emit('texto-editor-clientes', texto)
     }
   })
 })
-
-function encontrarDocumento(nome) {
-  const documento = documentos.find(documento => {
-    return documento.nome === nome
-  })
-
-  return documento
-}

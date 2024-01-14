@@ -3,9 +3,12 @@ import url from 'url'
 import path from 'path'
 import http from 'http'
 import { Server } from 'socket.io'
+import { config } from 'dotenv'
+
+config({ path: './.env', encoding: 'latin1'})
 
 const app = express()
-const porta = process.env.porta || 3000
+const porta = process.env.PORTA || 3000
 
 const caminhoAtual = url.fileURLToPath(import.meta.url)
 const diretorioPublico = path.join(caminhoAtual, '../..', 'src')
