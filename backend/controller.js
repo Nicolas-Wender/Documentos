@@ -37,3 +37,11 @@ export function adicionarDocumento(nome) {
 
   return resultado
 }
+
+export function excluirDocumento(nome) {
+  const resultado = documentosColecao.deleteOne({
+    nome,
+  });
+
+  return resultado;
+}

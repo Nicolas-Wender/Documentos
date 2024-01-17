@@ -2,6 +2,7 @@ import {
   adicionarDocumento,
   atualizarDocumento,
   encontrarDocumento,
+  excluirDocumento,
   obterDocumentos
 } from './controller.js'
 import io from './servidor.js'
@@ -42,6 +43,14 @@ io.on('connection', socket => {
 
     if (atualizacao.modifiedCount) {
       socket.to(nomeDocumento).emit('texto-editor-clientes', texto)
+    }
+  })
+
+  socket.on('excluir-documento', async nomeDocumento => {
+    const resultado = await excluirDocumento(nomeDocumento)
+  
+    if (resultado.deletedCount) {
+      io.emit('excluir-documento-clientes', nomeDocumento)
     }
   })
 })

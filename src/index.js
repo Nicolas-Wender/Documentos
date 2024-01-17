@@ -13,9 +13,15 @@ form.addEventListener('submit', event => {
 
 export function inserirLinkDocumento(nome) {
   listaDocumentos.innerHTML += `
-  <tr>
+  <tr id="documento-${nome}">
     <td class="px-6 py-4 whitespace-nowrap">
       <a href="documento.html?nome=${nome}">${nome}</a>
     </td>
   </tr>`
+}
+
+export function removerLinkDocumento(nome) {
+  const documento = document.getElementById(`documento-${nome}`)
+
+  listaDocumentos.removeChild(documento)
 }
